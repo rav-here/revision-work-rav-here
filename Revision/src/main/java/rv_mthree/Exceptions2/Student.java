@@ -10,32 +10,34 @@ package rv_mthree.Exceptions2;
  */
 public class Student {
     
+    // variables of class
     private int rollNo;
     private int age;
     private String name;
     private int marks;
 
+    // constructor of class
     public Student(int rollNo, int age, String name, int marks) throws marksCheckedException, ageCheckedException {
-        
+        // if age is in bounds 
         if (age >= 4 && age <= 18) {
-            this.age = age;
-        }
+            this.age = age; // initialise varibale
+        } // otherwise throw an exception for age
         else {
             throw new ageCheckedException("This age is out of bounds for a student!");
         }
-        
+        // if the marks are in bounds
         if (marks >= 0 && marks <= 100) {
-            this.marks = marks;
-        }
+            this.marks = marks; // initialise variable
+        } // otherwise throw an exception for marks
         else {
             throw new marksCheckedException("This mark is not valid!");
         }
-        
+        // construct/initialise other variables 
         this.rollNo = rollNo;
         this.name = name;
         
     }
-    
+    // getters and setters
     public int getRollNo() {
         return rollNo;
     }
@@ -55,7 +57,7 @@ public class Student {
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
     }
-
+    // in setters for age and marks do the same check for the bounds 
     public void setAge(int age) throws ageCheckedException {
         
         if (age >= 4 && age <= 18) {
