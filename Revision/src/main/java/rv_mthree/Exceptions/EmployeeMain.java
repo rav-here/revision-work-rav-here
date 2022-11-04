@@ -22,28 +22,33 @@ public class EmployeeMain {
     
     
     public static void main(String[] args) {
+        // instantiate scanner
         Scanner scan = new Scanner(System.in);
-        
+        // prompt for number of employees
         System.out.println("Please enter number of employees : ");
+        // accept integer user input
         int total = scan.nextInt();
-        
+        // instantiate list array object with length total 
         EmployeeNameList NameList = new EmployeeNameList(total);
+        // declare reference variable for employeeInput object
         EmployeeInput emp;
         
+        // try catch block for exceptions
         try {
-            for (int i = 0; i < total; i++) {
-
+            for (int i = 0; i < total; i++) { // for all members of the employee NameList
+                // print prompt for age
                 System.out.println("Please enter employee age: ");
-                int age = scan.nextInt();
-
+                int age = scan.nextInt(); // accept input
+                // pint prompt for name
                 System.out.println("Please enter employee name: ");
-                String name = scan.next();
-
+                String name = scan.next(); // accept it
+                // initiliase employeeInput object
                 emp = new EmployeeInput(name, age);
+                // add it the NameList array
                 NameList.inputEmployeeName(emp, i);
             }
-        }  
-        catch (AgeCheckedException a) {
+        }  // specify exceptions to be caught and dealt wih
+        catch (AgeCheckedException a) { 
             System.out.println("Employee age is not eligible for employment - out of bounds age entered");
         }
         catch(NameCheckedException a) {

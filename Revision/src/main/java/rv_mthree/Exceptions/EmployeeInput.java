@@ -10,25 +10,27 @@ package rv_mthree.Exceptions;
  */
 public class EmployeeInput {
     
+    // variables of class
     private int Age;
     private String Name;
     
-    public EmployeeInput(String Name, int Age) throws AgeCheckedException {
-        if (Age >= 18 && Age <= 60) {
-            this.Age = Age;
+    // constructor of class
+    public EmployeeInput(String Name, int Age) throws AgeCheckedException { // throws age exception
+        if (Age >= 18 && Age <= 60) { // if age is between 18 and 60
+            this.Age = Age; // dont throw
             this.Name = Name;
         }
-        else {
+        else { // otherwise throw the exception
             throw new AgeCheckedException("Age must be greater than 18 and less than 60.");
         }
         
     }
-    
+    // getters and setters 
     public int getAge() {
         return Age;
     }
 
-    public void setAge(int Age) {
+    public void setAge(int Age) { // add throw to age exception here too
         if (Age >= 18 && Age <= 60) {
             this.Age = Age;
         }
@@ -46,6 +48,7 @@ public class EmployeeInput {
         this.Name = Name;
     }
     
+    // display method - dispays 1 employee's info
     public void display() {
         System.out.println("Name of employee: "+ Name + " Age of employee: "+ Age);
         
